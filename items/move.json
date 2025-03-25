@@ -1,0 +1,20 @@
+{
+    "format_version": "1.21.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "fnaf:move"
+        },
+        "components": {
+            "minecraft:max_stack_size": 1,
+            "minecraft:icon": {
+                "textures": {
+                    "default": "walk"
+                }
+            },
+            "minecraft:display_name": {
+                "value": "Toggle Animatronic Movement"
+            },
+            "minecraft:custom_components": [ "fnaf:move" ]
+        }
+    }
+}

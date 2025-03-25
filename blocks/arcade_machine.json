@@ -1,0 +1,19 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "fnaf:arcade_machine"
+		},
+		"components": {
+			"minecraft:collision_box": true,
+			"minecraft:geometry": "geometry.block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "reveal",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:custom_components": [ "fnaf:arcade" ]
+		}
+	}
+}

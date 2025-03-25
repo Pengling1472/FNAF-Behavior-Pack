@@ -1,0 +1,42 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "fnaf:pizza_wall",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "fnaf:cut": {
+				"minecraft:skin_id": {
+					"value": 1
+				}
+			}
+        },
+        "components": {
+            "minecraft:physics": {
+                "has_collision": true,
+                "has_gravity": false
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [ {
+                    "cause": "all",
+                    "deals_damage": false
+                } ]
+            }
+        },
+        "events": {
+            "cut": {
+				"add": { "component_groups": [ "fnaf:cut" ] }
+			}
+        }
+    }
+}

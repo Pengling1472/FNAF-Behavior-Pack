@@ -1,0 +1,25 @@
+{
+	"format_version": "1.20.20",
+	"minecraft:item": {
+		"description": {
+			"identifier": "fnaf:security_uniform"
+		},
+		"components": {
+			"minecraft:icon": "security_uniform",
+			"minecraft:max_stack_size": 1,
+			"minecraft:wearable": {
+				"slot": "slot.armor.head"
+			},
+			"minecraft:display_name": {
+                "value": "Security Uniform"
+            },
+			"minecraft:durability": {
+				"max_durability": 170,
+				"damage_chance": {
+					"min": 60,
+					"max": 100
+				}
+			}
+		}
+	}
+}

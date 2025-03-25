@@ -1,0 +1,20 @@
+{
+    "format_version": "1.21.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "fnaf:animatronic_switch"
+        },
+        "components": {
+            "minecraft:max_stack_size": 1,
+            "minecraft:icon": {
+                "textures": {
+                    "default": "endoskeleton"
+                }
+            },
+            "minecraft:display_name": {
+                "value": "Switch Animatronic"
+            },
+            "minecraft:custom_components": [ "fnaf:switch" ]
+        }
+    }
+}

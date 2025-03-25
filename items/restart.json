@@ -1,0 +1,20 @@
+{
+    "format_version": "1.21.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "fnaf:restart"
+        },
+        "components": {
+            "minecraft:max_stack_size": 1,
+            "minecraft:icon": {
+                "textures": {
+                    "default": "restart"
+                }
+            },
+            "minecraft:display_name": {
+                "value": "Restart"
+            },
+            "minecraft:custom_components": [ "fnaf:arcade" ]
+        }
+    }
+}

@@ -1,0 +1,65 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "fnaf:pizza_block",
+			"traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [ "minecraft:facing_direction" ]
+                }
+            }
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"origin": [ -7, 1, 5 ],
+				"size": [ 14, 13, 2 ]
+			},
+			"minecraft:selection_box": {
+				"origin": [ -5, 1, -5 ],
+				"size": [ 10, 2, 10 ]
+			},
+			"minecraft:geometry": "geometry.pizza",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "pizza",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:custom_components": [ "fnaf:pizza" ]
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state( 'minecraft:facing_direction' ) == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation":	[ 0, 0, 0 ]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state( 'minecraft:facing_direction' ) == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation":	[ 0, 180, 0 ]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state( 'minecraft:facing_direction' ) == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation":	[ 0, 90, 0 ]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state( 'minecraft:facing_direction' ) == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation":	[ 0, 270, 0 ]
+					}
+				}
+			}
+		]
+	}
+}

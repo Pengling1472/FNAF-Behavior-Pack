@@ -1,0 +1,40 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "fnaf:lost_and_found",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "height": 0.3,
+                "width": 0.3
+            },
+            "minecraft:physics": {
+                "has_collision": true,
+                "has_gravity": true
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [ {
+                    "cause": "all",
+                    "deals_damage": false
+                } ]
+            },
+            "minecraft:inventory": {
+                "additional_slots_per_strength": 0,
+                "can_be_siphoned_from": false,
+                "container_type": "minecart_chest",
+                "inventory_size": 27
+            },
+            "minecraft:nameable": {
+                "allow_name_tag_renaming": true,
+                "always_show": false
+            }
+        }
+    }
+}

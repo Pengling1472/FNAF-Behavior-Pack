@@ -1,0 +1,58 @@
+{
+    "format_version": "1.19.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "fnaf:bonnie_head",
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [ "minecraft:facing_direction" ]
+                }
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.bonnie_head",
+            "minecraft:collision_box": true,
+            "minecraft:light_dampening": 0,
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "bonnie",
+                    "render_method": "alpha_test"
+                }
+            }
+        },
+        "permutations": [
+			{
+				"condition": "query.block_state( 'minecraft:facing_direction' ) == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [ 0, 0, 0 ]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:facing_direction') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation":	[ 0, 180, 0 ]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:facing_direction') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation":	[ 0, 90, 0 ]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:facing_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation":	[ 0, 270, 0 ]
+					}
+				}
+			}
+		]
+    }
+}

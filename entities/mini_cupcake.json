@@ -1,0 +1,77 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "fnaf:mini_cupcake",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "fnaf:explode": {
+                "minecraft:explode": {
+                    "power": 2,
+                    "fuse_length": 1,
+                    "fuse_lit": true,
+                    "causes_fire": false,
+                    "fire_affected_by_griefing": true,
+                    "destroy_affected_by_griefing": true
+                }
+            }
+        },
+        "components": {
+            "minecraft:projectile": {
+                "on_hit": {
+                    "stick_in_ground": {},
+                    "definition_event": {
+                        "affect_projectile": true,
+                        "event_trigger": {
+                            "event": "fnaf:explode",
+                            "target": "self"
+                        }
+                    }
+                },
+                "power": 0.8,
+                "gravity": 0,
+                "anchor": 2,
+                "inertia": 0.8,
+                "knockback": true,
+                "shoot_target": true,
+                "should_bounce": true,
+                "reflect_on_hurt": true,
+                "offset": [ 0, -0.1, 0 ]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [ {
+                    "cause": "fall",
+                    "deals_damage": false
+                } ]
+            },
+            "minecraft:collision_box": {
+                "height": 0.5,
+                "width": 0.5
+            },
+            "minecraft:physics": {
+                "has_collision": true,
+                "has_gravity": true
+            },
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:conditional_bandwidth_optimization": {
+                "default_values": {
+                    "max_optimized_distance": 80.0,
+                    "max_dropped_ticks": 10,
+                    "use_motion_prediction_hints": true
+                }
+            }
+        },
+        "events": {
+            "fnaf:explode": {
+                "add": {
+                    "component_groups": [ "fnaf:explode" ]
+                }
+            }
+        }
+    }
+}

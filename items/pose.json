@@ -1,0 +1,20 @@
+{
+    "format_version": "1.21.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "fnaf:pose"
+        },
+        "components": {
+            "minecraft:max_stack_size": 1,
+            "minecraft:icon": {
+                "textures": {
+                    "default": "pose"
+                }
+            },
+            "minecraft:display_name": {
+                "value": "Change Animatronic Pose"
+            },
+            "minecraft:custom_components": [ "fnaf:switch" ]
+        }
+    }
+}

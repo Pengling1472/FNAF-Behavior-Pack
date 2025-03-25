@@ -1,0 +1,61 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "fnaf:camera_block",
+			"traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [ "minecraft:facing_direction" ]
+                }
+            }
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"origin": [ -7, 0, -6 ],
+				"size": [ 14, 4, 12 ]
+			},
+			"minecraft:geometry": "geometry.camera_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "camera_block",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:custom_components": [ "fnaf:camera" ]
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state( 'minecraft:facing_direction' ) == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation":	[ 0, 0, 0 ]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state( 'minecraft:facing_direction' ) == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation":	[ 0, 180, 0 ]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state( 'minecraft:facing_direction' ) == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation":	[ 0, 90, 0 ]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state( 'minecraft:facing_direction' ) == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation":	[ 0, 270, 0 ]
+					}
+				}
+			}
+		]
+	}
+}

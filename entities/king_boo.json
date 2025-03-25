@@ -1,0 +1,173 @@
+{
+	"format_version": "1.17.30",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "fnaf:king_boo",
+			"runtime_identifier": "minecraft:vex",
+			"is_spawnable": false,
+			"is_summonable": true
+		},
+		"component_groups": {
+			"fnaf:no_movement": {
+                "minecraft:timer": {
+                    "time": 3,
+                    "looping": false,
+                    "time_down_event": {
+                        "event": "fnaf:movement",
+                        "target": "self"
+                    }
+                }
+			},
+			"fnaf:no_movement_2": {
+                "minecraft:timer": {
+                    "time": 10,
+                    "looping": false,
+                    "time_down_event": {
+                        "event": "fnaf:movement",
+                        "target": "self"
+                    }
+                },
+				"minecraft:behavior.knockback_roar": {
+					"attack_time": 0.1,
+					"cooldown_time": 0,
+					"duration": 0.1,
+					"knockback_damage": 1,
+					"knockback_horizontal_strength": 4,
+					"knockback_vertical_strength": 1,
+					"knockback_range": 3,
+					"knockback_strength": 3,
+					"damage_filters": [ {
+						"all_of": [ {
+							"test": "is_family",
+							"subject": "other",
+							"value": "player"
+						} ]
+					} ]
+				}
+			},
+            "fnaf:movement": {
+				"minecraft:behavior.nearest_attackable_target": {
+					"priority": 1,
+					"must_see": false,
+					"reselect_targets": true,
+					"entity_types": [ {
+						"filters": {
+							"any_of": [ {
+								"test": "is_family",
+								"subject": "other",
+								"value": "player"
+							} ]
+						},
+						"max_dist": 70
+					} ]
+				},
+                "minecraft:behavior.charge_attack": {
+                    "priority": 3,
+                    "speed_multiplier": 5,
+                    "success_rate": 0.5,
+					"min_distance": 0.01,
+					"max_distance": 0.01
+                },
+				"minecraft:behavior.look_at_target": {
+					"priority": 2,
+					"probability": 1,
+					"look_distance": 6
+				},
+				"minecraft:behavior.hurt_by_target": {
+					"priority": 0
+				},
+				"minecraft:movement": {
+					"value": 1,
+					"max": 1
+				},
+				"minecraft:movement.basic": {
+					"max_turn": 30
+				},
+				"minecraft:navigation.generic": {}
+            }
+		},
+		"components": {
+			"minecraft:damage_sensor": {
+				"triggers": [ {
+					"on_damage": {
+						"filters": {
+							"all_of": [ {
+								"test": "is_family",
+								"subject": "other",
+								"value": "player"
+							} ]
+						}
+					}
+				} ]
+			},
+            "minecraft:area_attack": {
+                "damage_per_tick": 4,
+                "damage_range": 0.6,
+                "damage_cooldown": 1,
+                "cause": "entity_attack",
+                "entity_filter":{
+                    "none_of": [
+                        {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "monster"
+                        }
+                    ]
+                }
+            },
+			"minecraft:type_family": {
+                "family": [ "zombie", "undead", "monster", "mob" ]
+            },
+			"minecraft:boss": {
+				"hud_range": 55,
+				"name": "§5§lKing Boo"
+			},
+			"minecraft:physics": {
+				"has_gravity": false,
+				"has_collision": false
+			},
+			"minecraft:scale": {
+				"value": 3.5
+			},
+			"minecraft:health": {
+				"value": 500,
+				"max": 500
+			},
+			"minecraft:attack": {
+				"damage": 1
+			},
+			"minecraft:collision_box": {
+				"width": 1,
+				"height": 1.2
+			},
+			"minecraft:fire_immune": {},
+			"minecraft:conditional_bandwidth_optimization": {}
+		},
+		"events": {
+			"fnaf:movement": {
+                "add": {
+                    "component_groups": [ "fnaf:movement" ]
+                },
+				"remove": {
+					"component_groups": [ "fnaf:no_movement", "fnaf:no_movement_2" ]
+				}
+			},
+			"fnaf:no_movement": {
+                "remove": {
+                    "component_groups": [ "fnaf:movement" ]
+                },
+				"add": {
+					"component_groups": [ "fnaf:no_movement" ]
+				}
+			},
+			"fnaf:no_movement_2": {
+                "remove": {
+                    "component_groups": [ "fnaf:movement" ]
+                },
+				"add": {
+					"component_groups": [ "fnaf:no_movement_2" ]
+				}
+			}
+		}
+	}
+}

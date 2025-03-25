@@ -1,0 +1,183 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "fnaf:monitor",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"fnaf:small": {
+				"minecraft:scale": {
+					"value": 1
+				}
+			},
+			"fnaf:normal": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "llama",
+								"target": "self"
+							},
+							"interact_text": "Change",
+							"swing": true,
+							"use_item": false
+						}
+					]
+				},
+				"minecraft:skin_id": {
+					"value": 0
+				}
+			},
+			"fnaf:llama": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "error",
+								"target": "self"
+							},
+							"interact_text": "Change",
+							"swing": true,
+							"use_item": false
+						}
+					]
+				},
+				"minecraft:skin_id": {
+					"value": 1
+				}
+			},
+			"fnaf:error": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "static",
+								"target": "self"
+							},
+							"interact_text": "Change",
+							"swing": true,
+							"use_item": false
+						}
+					]
+				},
+				"minecraft:skin_id": {
+					"value": 2
+				}
+			},
+			"fnaf:static": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "normal",
+								"target": "self"
+							},
+							"interact_text": "Change",
+							"swing": true,
+							"use_item": false
+						}
+					]
+				},
+				"minecraft:skin_id": {
+					"value": 3
+				}
+			}
+		},
+		"components": {
+			"minecraft:interact": {
+				"interactions": [
+					{
+						"on_interact": {
+							"event": "llama",
+							"target": "self"
+						},
+						"interact_text": "Change",
+						"swing": true,
+						"use_item": false
+					}
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+				  "cause": "all",
+				  "deals_damage": false
+				}
+			},
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            },
+			"minecraft:physics": {
+				"push_towards_closest_space": false
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false
+			},
+			"minecraft:scale": {
+				"value": 1.5
+			}
+		},
+		"events": {
+			"small": {
+				"add": {
+					"component_groups": [
+						"fnaf:small",
+						"fnaf:normal"
+					]
+				}
+			},
+			"normal": {
+				"add": {
+					"component_groups": [
+						"fnaf:normal"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"fnaf:static"
+					]
+				}
+			},
+			"llama": {
+				"add": {
+					"component_groups": [
+						"fnaf:llama"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"fnaf:normal"
+					]
+				}
+			},
+			"error": {
+				"add": {
+					"component_groups": [
+						"fnaf:error"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"fnaf:llama"
+					]
+				}
+			},
+			"static": {
+				"add": {
+					"component_groups": [
+						"fnaf:static"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"fnaf:error"
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "fnaf:chair",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "height": 1.5,
+                "width": 0.5
+            },
+            "minecraft:physics": {
+                "has_collision": true,
+                "has_gravity": true
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [ {
+                    "cause": "all",
+                    "deals_damage": false
+                } ]
+            },
+            "minecraft:rideable": {
+				"seat_count": 1,
+				"interact_text": "Sit",
+				"seats": [ {
+                    "position": [ 0, 0.7, 0 ]
+                } ],
+				"family_types": [
+					"player"
+				]
+			}
+        }
+    }
+}

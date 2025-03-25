@@ -1,0 +1,207 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "fnaf:cupcake",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "properties": {
+                "fnaf:state": {
+                    "type": "int",
+                    "default": 0,
+                    "range": [ 0, 5 ],
+                    "client_sync": true
+                }
+            }
+        },
+        "component_groups": {
+            "fnaf:cupcake_angry": {
+				"minecraft:angry": {
+                    "calm_event": {
+                        "event": "fnaf:on_calm",
+                        "target": "self"
+                    }
+                },
+				"minecraft:behavior.look_at_target": {}
+			},
+            "fnaf:cupcake_boss_bar": {
+                "minecraft:boss": {
+                    "hud_range": 55,
+                    "name": "§l§kCARLCARL§r§4§l C A R L §r§k§lCARLCARL"
+                }
+            },
+            "fnaf:cupcake_boss_phase_1": {
+                "minecraft:behavior.nearest_attackable_target": {
+                    "must_see": true,
+                    "must_reach": true,
+                    "reselect_targets": true,
+                    "entity_types": [ {
+                        "filters": {
+                            "all_of": [ {
+                                "test": "is_family",
+                                "subject": "other",
+                                "value": "player"
+                            } ]
+                        },
+                        "max_dist": 70
+                    } ]
+                },
+                "minecraft:navigation.walk": {
+                    "can_swim": true,
+                    "can_jump": true,
+                    "can_float": true,
+                    "can_path_over_water": true
+                },
+                "minecraft:damage_sensor": {
+                    "triggers": [ {
+                        "cause": "entity_explosion",
+                        "deals_damage": false
+                    } ]
+                },
+                "minecraft:on_target_acquired": {
+                    "event": "fnaf:become_angry",
+                    "target": "self"
+                },
+                "minecraft:shooter": {
+                    "def": "fnaf:mini_cupcake"
+                },	
+                "minecraft:physics": {
+                    "has_collision": true,
+                    "has_gravity": true
+                },
+                "minecraft:pushable": {
+                    "is_pushable": true,
+                    "is_pushable_by_piston": true
+                },
+                "minecraft:behavior.melee_attack": {
+                    "cooldown_time": 2,
+                    "reach_multiplier": 1.5
+                },
+                "minecraft:follow_range": {
+                    "value": 70,
+                    "max": 70
+                },
+                "minecraft:scale": {
+                    "value": 2
+                },
+                "minecraft:movement": {
+                    "value": 0.3
+                },
+                "minecraft:attack": {
+                    "damage": 1
+                },
+                "minecraft:conditional_bandwidth_optimization": {},
+                "minecraft:behavior.look_at_player": {},
+                "minecraft:movement.basic": {},
+                "minecraft:jump.static": {}
+            },
+            "fnaf:cupcake_boss_phase_2": {
+                "minecraft:teleport": {
+                    "random_teleports": true,
+                    "max_random_teleport_time": 5,
+                    "target_teleport_chance": 0.3,
+                    "target_distance": 8
+                }
+            },
+            "fnaf:cupcake_boss_phase_3": {
+                "minecraft:behavior.ranged_attack": {
+					"burst_shots": 1,
+					"attack_radius": 5,
+					"charge_shoot_trigger": 1,
+					"charge_charged_trigger": 0.6
+                },
+                "minecraft:behavior.melee_attack": {
+                    "cooldown_time": 1,
+                    "reach_multiplier": 2
+                },
+                "minecraft:scale": {
+                    "value": 2
+                }
+            },
+            "fnaf:cupcake_boss_phase_4": {
+                "minecraft:behavior.ranged_attack": {
+					"burst_shots": 3,
+					"attack_radius": 10,
+					"burst_interval": 0.1,
+					"charge_shoot_trigger": 0.7,
+					"charge_charged_trigger": 0.6
+                },
+                "minecraft:teleport": {
+                    "random_teleports": true,
+                    "max_random_teleport_time": 2.5,
+                    "target_teleport_chance": 0.2,
+                    "target_distance": 5
+                },
+                "minecraft:area_attack": {
+                    "damage_per_tick": 1,
+                    "damage_range": 1.5,
+                    "cause": "entity_attack"
+                },
+                "minecraft:scale": {
+                    "value": 3
+                }
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "height": 0.5,
+                "width": 0.5
+            },
+            "minecraft:health": {
+				"value": 800,
+				"max": 800
+			},
+            "minecraft:physics": {
+                "has_collision": true,
+                "has_gravity": true
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [ {
+                    "cause": "all",
+                    "deals_damage": false
+                } ]
+            }
+        },
+        "events": {
+			"fnaf:boss_1": {
+				"add": {
+					"component_groups": [ "fnaf:cupcake_boss_phase_1", "fnaf:cupcake_boss_bar" ]
+				}
+			},
+			"fnaf:boss_2": {
+				"add": {
+					"component_groups": [ "fnaf:cupcake_boss_phase_2" ]
+				}
+			},
+			"fnaf:boss_3": {
+				"add": {
+					"component_groups": [ "fnaf:cupcake_boss_phase_3" ]
+				}
+			},
+			"fnaf:boss_4": {
+				"add": {
+					"component_groups": [ "fnaf:cupcake_boss_phase_4" ]
+				}
+			},
+			"fnaf:boss_5": {
+				"remove": {
+					"component_groups": [ "fnaf:cupcake_boss_bar" ]
+				}
+			},
+            "fnaf:become_angry": {
+				"add": {
+					"component_groups": [ "fnaf:cupcake_angry" ]
+				}
+			},
+			"fnaf:on_calm": {
+				"remove": {
+					"component_groups": [ "fnaf:cupcake_angry" ]
+				}
+			}
+        }
+    }
+}

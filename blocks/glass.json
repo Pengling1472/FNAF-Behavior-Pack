@@ -1,0 +1,47 @@
+{
+    "format_version": "1.19.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "fnaf:glass",
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [ "minecraft:facing_direction" ]
+                }
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.glass",
+            "minecraft:light_dampening": 0,
+            "minecraft:collision_box": {
+                "origin": [ -8, 0, -3 ],
+                "size": [ 16, 16, 6 ]
+            },
+            "minecraft:selection_box": {
+                "origin": [ -8, 0, -3 ],
+                "size": [ 16, 16, 6 ]
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "fnaf_glass",
+                    "render_method": "blend"
+                }
+            }
+        },
+        "permutations": [             {
+            "condition": "query.block_state( 'minecraft:facing_direction' ) == 'north' || query.block_state( 'minecraft:facing_direction' ) == 'south'",
+            "components": {
+                "minecraft:transformation": {
+                    "rotation": [ 0, 0, 0 ]
+                }
+            }
+        },
+        {
+            "condition": "query.block_state( 'minecraft:facing_direction' ) == 'west' || query.block_state( 'minecraft:facing_direction' ) == 'east'",
+            "components": {
+                "minecraft:transformation": {
+                    "rotation": [ 0, 90, 0 ]
+                }
+            }
+        } ]
+    }
+}

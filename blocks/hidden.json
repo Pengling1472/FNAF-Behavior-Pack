@@ -1,0 +1,62 @@
+{
+    "format_version": "1.19.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "fnaf:hidden",
+            "states": {
+                "fnaf:rotation": [ "north", "south", "east", "west" ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.hidden",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "hidden",
+                    "render_method": "alpha_test_single_sided"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [ -8, 0, -8 ],
+                "size": [ 16, 16, 1 ]
+            },
+            "minecraft:selection_box": {
+                "origin": [ -8, 0, -8 ],
+                "size": [ 16, 16, 1 ]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state( 'fnaf:rotation' ) == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 0, -180 ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state( 'fnaf:rotation' ) == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, -180, -180 ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state( 'fnaf:rotation' ) == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 90, -180 ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state( 'fnaf:rotation' ) == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, -90, -180 ]
+                    }
+                }
+            }
+        ]
+    }
+}

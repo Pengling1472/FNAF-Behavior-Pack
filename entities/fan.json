@@ -1,0 +1,104 @@
+
+{
+	"format_version": "1.16.100",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "fnaf:fan",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"scripts": {	
+				"animate": [ "controller" ]
+			},
+			"animations": {
+				"controller": "controller.animation.fan"
+			}
+		},
+		"component_groups": {
+			"fnaf:fan_spin": {
+				"minecraft:variant": {
+					"value": 1
+				},
+				"minecraft:interact": {
+					"interactions": [ {
+						"on_interact": {
+							"event": "fan_stop",
+							"target": "self"
+						},
+						"interact_text": "Turn Off",
+						"swing": true,
+						"use_item": false
+					} ]
+				}
+			},
+			"fnaf:fan_stop": {
+				"minecraft:variant": {
+					"value": 0
+				},
+				"minecraft:interact": {
+					"interactions": [ {
+						"on_interact": {
+							"event": "normal_fan",
+							"target": "self"
+						},
+						"interact_text": "Turn On",
+						"swing": true,
+						"use_item": false
+					} ]
+				}
+			}
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"width": 0.3,
+				"height": 1
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": false	
+			},
+            "minecraft:damage_sensor": {
+                "triggers": [ {
+                    "cause": "all",
+                    "deals_damage": false
+                } ]
+            },
+			"minecraft:interact": {
+				"interactions": [ {
+					"on_interact": {
+						"event": "normal_fan",
+						"target": "self"
+					},
+					"interact_text": "Turn On",
+					"swing": true,
+					"use_item": false
+				} ]
+			}
+		},
+		"events": {
+			"fan_stop": {
+				"add": {
+					"component_groups": [
+						"fnaf:fan_stop"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"fnaf:fan_spin"
+					]
+				}
+			},
+			"normal_fan": {
+				"add": {
+					"component_groups": [
+						"fnaf:fan_spin"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"fnaf:fan_stop"
+					]
+				}
+			}
+		}
+	}
+}

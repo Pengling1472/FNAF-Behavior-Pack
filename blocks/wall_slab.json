@@ -1,0 +1,91 @@
+{
+    "format_version": "1.19.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "fnaf:wall_slab",
+            "states": {
+                "fnaf:texture": [ 0, 1, 2 ]
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [ "minecraft:facing_direction" ]
+                }
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.wall_slab",
+            "minecraft:light_dampening": 0,
+            "minecraft:collision_box": {
+                "origin": [ -8, 0, -8 ],
+                "size": [ 16, 16, 8 ]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state( 'fnaf:texture' ) == 0",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "wool_colored_red",
+                            "render_method": "opaque"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state( 'fnaf:texture' ) == 1",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "wool_colored_purple",
+                            "render_method": "opaque"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state( 'fnaf:texture' ) == 2",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "polished_blackstone",
+                            "render_method": "opaque"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state( 'minecraft:facing_direction' ) == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 0, -180 ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state( 'minecraft:facing_direction' ) == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, -180, -180 ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state( 'minecraft:facing_direction' ) == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 90, -180 ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state( 'minecraft:facing_direction' ) == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, -90, -180 ]
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "format_version": "1.19.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "fnaf:door",
+            "states": {
+                "fnaf:texture": [ 0, 1 ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.door",
+            "minecraft:light_dampening": 0,
+            "minecraft:collision_box": {
+                "origin": [ -3, 0, -8 ],
+                "size": [ 6, 16, 16 ]
+            },
+            "minecraft:custom_components": [ "fnaf:texture" ]
+        },
+        "permutations": [ {
+            "condition": "query.block_state( 'fnaf:texture' ) == 0",
+            "components": {
+                "minecraft:material_instances": {
+                    "*": {
+                        "texture": "cobblestone_mossy"
+                    }
+                }
+            }
+        }, {
+            "condition": "query.block_state( 'fnaf:texture' ) == 1",
+            "components": {
+                "minecraft:material_instances": {
+                    "*": {
+                        "texture": "polished_blackstone"
+                    }
+                }
+            }
+        } ]
+    }
+}

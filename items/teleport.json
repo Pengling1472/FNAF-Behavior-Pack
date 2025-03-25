@@ -1,0 +1,20 @@
+{
+    "format_version": "1.21.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "fnaf:teleport"
+        },
+        "components": {
+            "minecraft:max_stack_size": 1,
+            "minecraft:icon": {
+                "textures": {
+                    "default": "player"
+                }
+            },
+            "minecraft:display_name": {
+                "value": "Teleport"
+            },
+            "minecraft:custom_components": [ "fnaf:arcade" ]
+        }
+    }
+}

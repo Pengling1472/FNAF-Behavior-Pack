@@ -1,0 +1,24 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:item": {
+		"description": {
+			"identifier": "fnaf:pizza"
+		},
+		"components": {
+			"minecraft:max_stack_size": 64,
+			"minecraft:icon": "pizza",
+			"minecraft:display_name": {
+				"value": "Pizza"
+			},
+			"minecraft:food": {
+				"can_always_eat": true,
+				"nutrition": 3
+			},
+			"minecraft:use_modifiers": {
+				"use_duration": 1,
+				"movement_modifier": 0.33
+			},
+			"minecraft:use_animation": "eat"
+		}
+	}
+}

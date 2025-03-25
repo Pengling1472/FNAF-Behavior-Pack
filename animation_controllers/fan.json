@@ -1,0 +1,18 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+		"controller.animation.fan": {
+			"states": {
+				"default": {
+					"transitions": [ { "command": "query.variant == 1" } ]
+				},
+				"command": {
+                    "transitions": [ { "default": "query.variant == 0" } ],
+					"on_exit": [
+						"/stopsound @a fnaf.fan"
+					]
+				}
+			}
+		}
+	}
+}

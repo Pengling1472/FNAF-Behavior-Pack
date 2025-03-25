@@ -1,0 +1,27 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "fnaf:paper_ball",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "height": 0.3,
+                "width": 0.3
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [ {
+                    "cause": "all",
+                    "deals_damage": false
+                } ]
+            }
+        }
+    }
+}

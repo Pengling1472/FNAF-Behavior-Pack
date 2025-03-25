@@ -1,0 +1,42 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "fnaf:freddy",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "properties": {
+                "fnaf:state": {
+                    "type": "int",
+                    "default": 0,
+                    "range": [ 0, 8 ],
+                    "client_sync": true
+                },
+                "fnaf:lit_eye": {
+                    "type": "bool",
+                    "default": false,
+                    "client_sync": true
+                }
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "height": 3.5,
+                "width": 0.8
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:physics": {
+                "push_towards_closest_space": false
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [ {
+                    "cause": "all",
+                    "deals_damage": false
+                } ]
+            }
+        }
+    }
+}

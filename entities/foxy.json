@@ -1,0 +1,35 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "fnaf:foxy",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "properties": {
+                "fnaf:state":{
+                    "type": "int",
+                    "default": 0,
+                    "range": [ 0, 5 ],
+                    "client_sync": true
+                }
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "height": 3,
+                "width": 0.8
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:physics": {},
+            "minecraft:damage_sensor": {
+                "triggers": [ {
+                    "cause": "all",
+                    "deals_damage": false
+                } ]
+            }
+        }
+    }
+}

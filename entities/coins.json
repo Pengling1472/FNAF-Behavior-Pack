@@ -1,0 +1,35 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "fnaf:coins",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "height": 0.5,
+                "width": 0.5
+            },
+            "minecraft:physics": {
+                "has_collision": true,
+                "has_gravity": true
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": false
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [ {
+                    "cause": "all",
+                    "deals_damage": false
+                } ]
+            },
+            "minecraft:interact": {
+                "interactions": [ {
+                    "interact_text": "Collect"
+                } ]
+            }
+        }
+    }
+}

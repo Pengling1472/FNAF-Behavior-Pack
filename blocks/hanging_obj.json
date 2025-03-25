@@ -1,0 +1,47 @@
+{
+    "format_version": "1.19.80",
+    "minecraft:block": {
+        "description": {
+            "identifier": "fnaf:hanging_block",
+            "states": {
+                "fnaf:texture": [ 0, 1, 2 ]
+            }
+        },
+        "components": {
+            "minecraft:geometry": "geometry.hanging_block",
+            "minecraft:collision_box": false,
+            "minecraft:light_dampening": 0
+        },
+        "permutations": [ {
+            "condition": "query.block_state( 'fnaf:texture' ) == 0",
+            "components": {
+                "minecraft:material_instances": {
+                    "*": {
+                        "texture": "wires",
+                        "render_method": "alpha_test"
+                    }
+                }
+            }
+        }, {
+            "condition": "query.block_state( 'fnaf:texture' ) == 1",
+            "components": {
+                "minecraft:material_instances": {
+                    "*": {
+                        "texture": "strings",
+                        "render_method": "alpha_test"
+                    }
+                }
+            }
+        }, {
+            "condition": "query.block_state( 'fnaf:texture' ) == 2",
+            "components": {
+                "minecraft:material_instances": {
+                    "*": {
+                        "texture": "stars",
+                        "render_method": "alpha_test"
+                    }
+                }
+            }
+        } ]
+    }
+}

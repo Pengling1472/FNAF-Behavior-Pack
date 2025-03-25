@@ -1,0 +1,20 @@
+{
+    "format_version": "1.21.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "fnaf:back-stage"
+        },
+        "components": {
+            "minecraft:max_stack_size": 1,
+            "minecraft:icon": {
+                "textures": {
+                    "default": "compass"
+                }
+            },
+            "minecraft:display_name": {
+                "value": "Back Stage"
+            },
+            "minecraft:custom_components": [ "fnaf:move" ]
+        }
+    }
+}

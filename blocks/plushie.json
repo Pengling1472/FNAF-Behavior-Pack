@@ -1,0 +1,65 @@
+{
+	"format_version": "1.19.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "fnaf:plushie",
+			"traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [ "minecraft:facing_direction" ]
+                }
+            }
+		},
+		"components": {
+			"minecraft:geometry": "geometry.plushie",
+			"minecraft:collision_box": {
+				"origin": [ -3, 0, -4 ],
+				"size": [ 6, 16, 7 ]
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "plushie",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:selection_box": {
+				"origin": [ -1, 9, -4 ],
+				"size": [ 2, 1, 1 ]
+			},
+			"minecraft:custom_components": [ "fnaf:honk" ]
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state( 'minecraft:facing_direction' ) == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [ 0, 0, 0 ]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:facing_direction') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation":	[ 0, 180, 0 ]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:facing_direction') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation":	[ 0, 90, 0 ]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:facing_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation":	[ 0, 270, 0 ]
+					}
+				}
+			}
+		]
+	}
+}

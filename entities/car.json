@@ -1,0 +1,53 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "fnaf:car",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "components": {
+            "minecraft:health": {
+                "value": 1,
+                "max": 1
+            },
+			"minecraft:collision_box": {
+				"width": 1,
+				"height": 1
+			},
+			"minecraft:movement": {
+				"value": 0.2
+			},
+            "minecraft:scale": {
+				"value": 2
+			},
+            "minecraft:is_dyeable": {
+                "interact_text": "Dye"
+            },
+            "minecraft:color": {
+                "value": 0
+            },
+			"minecraft:damage_sensor": {
+                "triggers": [ {
+                    "cause": "all",
+                    "deals_damage": false
+                } ]
+            },
+            "minecraft:rideable": {
+				"seat_count": 1,
+				"interact_text": "Drive",
+				"seats": [ {
+                    "position": [ 0, 0.1, -0.2 ]
+                } ],
+				"family_types": [
+					"player"
+				]
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {},
+			"minecraft:movement.basic": {},
+			"minecraft:navigation.walk": {},
+			"minecraft:input_ground_controlled": {}
+        }
+    }
+}
